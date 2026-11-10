@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f2eb">
+    <meta name="description" content="Übe für den Einbürgerungstest: Wähle 10 bis 300 Fragen und sieh sofort, wie du abgeschnitten hast.">
+    <title>Einbürgerungstest — Sicher vorbereitet</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="questions.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Einbürgerungstest Startseite">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>einbürgerungs<span class="brand-light">test</span></span>
+      </a>
+      <a class="top-link" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noreferrer">Über den Test <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section id="home-screen" class="home-screen">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> DEIN WEG ZUR EINBÜRGERUNG</div>
+            <h1>Deutschland besser verstehen.<br><span>Gut vorbereitet sein.</span></h1>
+            <p class="hero-lede">Übe in deinem Tempo mit Fragen zu Politik, Geschichte und Zusammenleben — und erfahre direkt, was schon sitzt.</p>
+            <div class="hero-facts">
+              <div><strong>300</strong><span>Übungsfragen</span></div><i aria-hidden="true"></i>
+              <div><strong>5</strong><span>Testlängen</span></div><i aria-hidden="true"></i>
+              <div><strong>0</strong><span>Zeitdruck</span></div>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-sun"></div>
+            <div class="art-card art-card-back"><span>WISSEN</span><b>+</b></div>
+            <div class="art-card art-card-front">
+              <div class="art-card-top"><span class="mini-flag"><i></i><i></i><i></i></span><span>DEIN LERNMOMENT</span></div>
+              <div class="art-check">✓</div><p>Schritt für Schritt<br><b>zum Ziel.</b></p>
+              <div class="art-progress"><span></span></div>
+              <div class="art-card-bottom"><span>FORTSCHRITT</span><b>01 / 10</b></div>
+            </div>
+            <div class="art-note"><span>✦</span> Dein Tempo. Dein Erfolg.</div>
+          </div>
+        </div>
+
+        <section class="setup-card" aria-labelledby="setup-title">
+          <div class="setup-heading">
+            <div><div class="step-label"><span>01</span> DEIN ÜBUNGSTEST</div><h2 id="setup-title">Wie viele Fragen möchtest du üben?</h2></div>
+            <p>Wähle die Länge, die heute zu dir passt.</p>
+          </div>
+          <div class="count-options" role="group" aria-label="Anzahl der Fragen">
+            <button class="count-option" type="button" data-count="10"><strong>10</strong><span>kurz &amp; knackig</span></button>
+            <button class="count-option" type="button" data-count="30"><strong>30</strong><span>eine gute Runde</span></button>
+            <button class="count-option" type="button" data-count="50"><strong>50</strong><span>mehr Sicherheit</span></button>
+            <button class="count-option" type="button" data-count="100"><strong>100</strong><span>intensiv üben</span></button>
+            <button class="count-option selected" type="button" data-count="300"><strong>300</strong><span>alle Übungsfragen</span></button>
+          </div>
+          <div class="setup-footer">
+            <span class="privacy-note"><span aria-hidden="true">◈</span> Kostenlos · Ohne Anmeldung · Dein Ergebnis bleibt bei dir</span>
+            <button id="start-button" class="button button-primary" type="button">Test starten <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="catalogue-note">Eigener Übungskatalog zur Vorbereitung — keine amtlichen Originalfragen des BAMF.</p>
+        </section>
+
+        <section class="info-row" aria-label="So funktioniert es">
+          <article class="info-item"><div class="info-icon icon-learn" aria-hidden="true">↗</div><div><h3>Lernen ohne Druck</h3><p>Beantworte die Fragen in deinem eigenen Rhythmus. Du kannst jederzeit zurückspringen.</p></div></article>
+          <article class="info-item"><div class="info-icon icon-check" aria-hidden="true">✓</div><div><h3>Klar sehen, was sitzt</h3><p>Am Ende bekommst du deine richtigen Antworten, Fehler und deinen persönlichen Prozentwert.</p></div></article>
+          <article class="info-item"><div class="info-icon icon-safe" aria-hidden="true">⌂</div><div><h3>Privat &amp; einfach</h3><p>Kein Konto, keine Datensammlung. Dein Fortschritt wird nur auf diesem Gerät gespeichert.</p></div></article>
+        </section>
+      </section>
+
+      <section id="quiz-screen" class="quiz-screen" hidden aria-labelledby="question-text">
+        <div class="quiz-top">
+          <button id="exit-button" class="text-button" type="button"><span aria-hidden="true">←</span> Test beenden</button>
+          <div class="quiz-caption"><span class="mini-flag"><i></i><i></i><i></i></span> ÜBUNGSTEST</div>
+          <div id="quiz-count" class="quiz-count">FRAGE <strong>01</strong> / 10</div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Testfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <div class="quiz-layout">
+          <aside class="quiz-aside"><span class="step-label"><span>02</span> DEIN TEST</span><h2>Frage für Frage.<br><em>Du schaffst das.</em></h2><p>Lies die Frage in Ruhe und wähle die Antwort, die du für richtig hältst.</p><div class="aside-tip"><span aria-hidden="true">✦</span><p><b>Gut zu wissen</b><br>Du kannst deine Auswahl ändern, solange der Test läuft.</p></div></aside>
+          <section class="question-card" aria-live="polite">
+            <div class="question-meta"><span id="question-category">POLITIK &amp; DEMOKRATIE</span><span id="answered-count">0 beantwortet</span></div>
+            <h1 id="question-text" tabindex="-1"></h1>
+            <div id="answer-list" class="answer-list" role="group" aria-label="Antwortmöglichkeiten"></div>
+            <div class="question-footer"><button id="previous-button" class="button button-secondary" type="button"><span aria-hidden="true">←</span> Zurück</button><button id="next-button" class="button button-primary" type="button">Nächste Frage <span aria-hidden="true">→</span></button></div>
+          </section>
+        </div>
+        <nav id="question-dots" class="question-dots" aria-label="Fragenübersicht"></nav>
+      </section>
+
+      <section id="result-screen" class="result-screen" hidden aria-labelledby="result-title">
+        <div class="result-heading"><div class="step-label"><span>03</span> DEIN ERGEBNIS</div><h1 id="result-title">Du hast es geschafft.</h1><p>Jede Frage war ein Schritt nach vorn. Schau dir an, wie du abgeschnitten hast.</p></div>
+        <div class="result-card">
+          <div class="score-panel"><div class="score-ring"><div><strong id="score-percent">0%</strong><span>RICHTIG</span></div></div><p id="result-message">Weiter üben lohnt sich — du bist auf dem Weg.</p></div>
+          <div class="result-stats">
+            <div class="stat-row"><span><i class="stat-dot correct-dot"></i>Richtig beantwortet</span><strong id="correct-total">0</strong></div>
+            <div class="stat-row"><span><i class="stat-dot wrong-dot"></i>Falsch beantwortet</span><strong id="wrong-total">0</strong></div>
+            <div class="stat-row"><span><i class="stat-dot open-dot"></i>Nicht beantwortet</span><strong id="skipped-total">0</strong></div>
+            <div class="result-divider"></div><div class="stat-row total-row"><span>Fragen insgesamt</span><strong id="total-count">0</strong></div>
+            <div class="result-actions"><button id="review-button" class="button button-secondary" type="button">Antworten ansehen</button><button id="retry-button" class="button button-primary" type="button">Neuen Test starten <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+        <div id="review-panel" class="review-panel" hidden><div class="review-heading"><div class="step-label"><span>↳</span> DEINE ANTWORTEN</div><h2>Das hast du geantwortet</h2></div><div id="review-list" class="review-list"></div></div>
+        <p class="catalogue-note result-note">Übungsergebnis — kein amtliches Prüfungsergebnis.</p>
+      </section>
+    </main>
+    <footer class="footer"><span>Mit Ruhe lernen. Mit Zuversicht ankommen.</span><span>Ein persönliches Lernprojekt von <b>ruslan</b></span></footer>
+    <noscript><p class="noscript">Bitte aktiviere JavaScript, um den Übungstest zu verwenden.</p></noscript>
+  </body>
+</html>
