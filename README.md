@@ -38,6 +38,10 @@ Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die statische W
 
 ## Projektdateien
 
+<img width="1880" height="936" alt="image" src="https://github.com/user-attachments/assets/08225772-c503-4a79-9a24-860b78ef80f0" />
+powered by ruslan.
+
+
 - `index.html` – deutsche Benutzeroberfläche
 - `styles.css` – Gestaltung für Desktop und Mobilgeräte
 - `app.js` – Testablauf, Navigation und Auswertung
