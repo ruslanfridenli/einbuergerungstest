@@ -34,6 +34,14 @@ The app is an independent study aid, is not affiliated with or endorsed by the B
 
 Contact: [ruslanfridenli@proton.me](mailto:ruslanfridenli@proton.me)
 
+### Support the project
+
+If this app helps you, a donation would mean a lot and help me keep improving it. You can also support the project by starring the [GitHub repository](https://github.com/ruslanfridenli/einbuergerungstest). Thank you!
+
+- Solana: `zQpgZ6nGigww7vYpz3Qqxb1BT44kqS567vFaLTeHagS`
+- Ethereum: `0x9c4fE1B2e9a1A9c22312c8296BB088Ca0e8F1B4e`
+- Bitcoin: `bc1p2jltk9ya9kyzv35d8kxn7mmg9jqkx66cqtgzqwe75zlr4v9jk4hsv468q7`
+
 ### Run locally
 
 No package installation is required. From the repository directory, start any static HTTP server, for example:
@@ -77,6 +85,14 @@ Die Anwendung hat kein Konto, kein eigenes Backend, kein Analyse-Skript und kein
 Die Website ist eine unabhängige Lernhilfe, steht nicht mit dem BAMF in Verbindung und bietet keine Rechts-, Aufenthalts-, medizinische oder psychologische Beratung.
 
 Kontakt: [ruslanfridenli@proton.me](mailto:ruslanfridenli@proton.me)
+
+### Projekt unterstützen
+
+Wenn dir diese Website beim Lernen hilft, würde mir eine Spende sehr viel bedeuten und dabei helfen, sie weiterzuentwickeln. Alternativ kannst du das Projekt mit einem Stern im [GitHub-Repository](https://github.com/ruslanfridenli/einbuergerungstest) unterstützen. Vielen Dank!
+
+- Solana: `zQpgZ6nGigww7vYpz3Qqxb1BT44kqS567vFaLTeHagS`
+- Ethereum: `0x9c4fE1B2e9a1A9c22312c8296BB088Ca0e8F1B4e`
+- Bitcoin: `bc1p2jltk9ya9kyzv35d8kxn7mmg9jqkx66cqtgzqwe75zlr4v9jk4hsv468q7`
 
 ### Lokal starten
 
