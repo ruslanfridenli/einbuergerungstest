@@ -1,9 +1,10 @@
 "use strict";
 
-const CACHE_NAME = "einbuergerungstest-v4";
+const CACHE_NAME = "einbuergerungstest-v5";
 const APP_FILES = [
   "./",
   "./index.html",
+  "./legal.html",
   "./styles.css",
   "./app.js",
   "./questions.js",

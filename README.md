@@ -1,69 +1,99 @@
-# Einbürgerungstest – Lernen in deinem Tempo
+# einbürgerungstest · independent study app
 
-Eine kostenlose, responsive Lernwebsite mit unabhängigen Wissensübungen, einer Prüfungssimulation, Deutsch-Lernmodulen und Orientierung für den Alltag in Deutschland. Die Inhalte laufen ohne Anmeldung, Backend, Tracking-Skript oder externe JavaScript-Bibliotheken.
+Free, self-paced practice for the German citizenship test, with German-language learning activities from A1 to C1. The app is independent, works without an account, and can be installed as a progressive web app.
 
-## Angebote
+## Screenshots · Screenshots
 
-- 300 selbst erstellte Frageformulierungen aus 100 Themenfeldern; jede Formulierung hat vier Antwortmöglichkeiten.
-- Themenrunden zu Demokratie und Grundrechten, Geschichte sowie Alltag und Zusammenleben.
-- Wählbare Wissensrunden mit 10, 30, 50, 100 oder 300 Fragen (abhängig von der Themenauswahl).
-- Eine 33-Fragen-Simulation mit 60 Minuten, 30 allgemeinen Übungsfragen und drei Fragen für das gewählte Bundesland. Die Simulation nutzt eine Übungsschwelle von 17 richtigen Antworten; sie enthält keine amtlichen Fragen und ist kein Prüfungsergebnis.
-- Antworterklärungen, verständliche Erklärungen zu politischen Begriffen, Wiederholung falscher oder offener Fragen und ein druckbarer Fehlerbericht.
-- Deutsch-Lernbeispiele von A1 bis C1 mit Wortschatz, Grammatik-Quiz, Alltagssituationen sowie Vorlesen und Diktat.
-- Browser-Vorlesefunktion, Tastaturbedienung (1–4 und Enter), Hell-/Dunkel-Design und eine installierbare PWA mit Offline-Nutzung nach dem ersten Laden.
-- Ein freiwilliger, nicht-klinischer Selbstreflexions-Check-in ohne Punktzahl, Diagnose oder wissenschaftlichen Anspruch.
-- Optionaler Lernzähler in `localStorage`, standardmäßig ausgeschaltet. Es werden nur Anzahl und Richtig-Zähler pro Frage gespeichert, niemals die ausgewählten Antworten. Die Daten lassen sich in der Oberfläche löschen.
-- Orientierung zur Anmeldung bei einer Prüfstelle mit dem Hinweis, die konkreten Dokumente und Fristen direkt dort zu bestätigen.
+The interface shown here is in German. Captions are in English and German.
 
-## Amtliche Prüfung und Quellen
+| Desktop · Startseite | Mobile · Mobilansicht |
+| --- | --- |
+| ![Desktop app screenshot · Screenshot der Desktopansicht](docs/screenshots/desktop.png) | ![Mobile app screenshot · Screenshot der Mobilansicht](docs/screenshots/mobile.png) |
+| Quiz · Übungsansicht | Results · Ergebnisauswertung |
+| ![Quiz screenshot · Screenshot der Übungsansicht](docs/screenshots/quiz.png) | ![Results screenshot · Screenshot der Ergebnisauswertung](docs/screenshots/results.png) |
 
-Die Fragen auf dieser Website sind **selbst erstelltes Übungsmaterial und keine amtlichen BAMF-Originalfragen**. Die Website ist unabhängig, nicht mit dem BAMF verbunden oder von ihm bestätigt und ersetzt weder amtliche Materialien noch eine Prüfung. Für aktuelle Informationen zum Einbürgerungstest besuche die [Website des BAMF](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html).
+## English
 
-Die Simulation orientiert sich am Format mit 33 Fragen, 60 Minuten und drei Fragen zum Bundesland. Sie verwendet einen selbst erstellten Fragenpool und eine Übungsschwelle von 17 richtigen Antworten. Ergebnisse sind kein amtlicher Nachweis. Verbindliche Informationen zur Anmeldung, zu benötigten Dokumenten und zu Terminen erteilt die zuständige Prüfstelle.
+### What you can do
 
-## Selbstständiges Deutschlernen
+- Practice with 300 original question variants, topic rounds, and selectable round lengths.
+- Take a 33-question, 60-minute practice simulation with three questions for a selected federal state. Questions are independently written, not official BAMF questions; the result is not an official exam result.
+- Review answers and explanations, repeat missed questions, and print a review sheet.
+- Use sample German modules from A1 to C1, with vocabulary, grammar, dictation, and browser speech synthesis.
+- Optionally save per-question attempt and correct counters in this browser. Saving is off by default; answer text is never persisted.
+- Use a voluntary, unscored reflection check-in. It is not a psychological assessment or crisis service.
+- Install the PWA and use its cached app shell offline after the first visit.
 
-Die fünf Lernkarten bieten jeweils ausgewählte Beispiele für A1, A2, B1, B2 und C1. Sie sind Lernimpulse und kein vollständiger Sprachkurs oder Einstufungstest. Vorlesen und Diktatvergleich nutzen die Sprachfunktionen des Browsers; dafür kann eine deutsche Sprachausgabe erforderlich sein.
+### Legal, privacy, and contact
 
-## Selbstreflexion, Sicherheit und Datenschutz
+The [legal information page](legal.html) groups provider information, privacy details, local storage and offline-cache behavior, terms of use, accessibility notes, and contact. This is informational copy, not legal advice or a guarantee of compliance. **The operator must add and verify a complete postal address and any other required provider details before the page can be represented as a complete legal notice.** No address or company details have been invented.
 
-Der Check-in ist eine kurze Einladung zum Innehalten. Er ist **kein psychologischer Test**, kein wissenschaftlich validiertes Instrument und kann keine psychische Erkrankung erkennen. Er bietet keine medizinische, therapeutische oder rechtliche Beratung. Antworten werden nur vorübergehend im Arbeitsspeicher der geöffneten Seite gehalten; die Anwendung sendet sie nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten.
+The app has no account, app backend, analytics script, or advertising tracker. Quiz and reflection answers are held in page memory only. If enabled, `localStorage` stores only attempt/correct counts per question. The service worker caches same-origin app files for offline use. The hosting provider may process technical access logs under its own terms. Email links open the visitor's mail app and never send automatically.
 
-Für allgemeine Rückmeldungen gibt es einen E-Mail-Kontakt zu `ruslanfridenli@proton.me`; dieser öffnet eine leere Nachricht im Mailprogramm. Die freiwillige Tippfehler-Meldung kann die aktuelle Frage in eine Nachricht übernehmen. Beide Funktionen verschicken nichts automatisch und fügen keine Antworten aus Übungen an. Bitte keine sensiblen Gesundheits- oder persönlichen Daten per E-Mail senden.
+The app is an independent study aid, is not affiliated with or endorsed by the BAMF, and does not provide legal, immigration, medical, or psychological advice.
 
-Die Inhalte versprechen weder ein bestimmtes Prüfungsergebnis noch eine universelle rechtliche Bewertung. Bei persönlicher Belastung wende dich an eine qualifizierte Fachperson oder eine örtliche Beratungsstelle. Bei akuter Gefahr nutze den örtlichen Notruf; in Deutschland bietet die [TelefonSeelsorge](https://www.telefonseelsorge.de/) Unterstützung.
+Contact: [ruslanfridenli@proton.me](mailto:ruslanfridenli@proton.me)
 
-## Lokal starten
+### Run locally
 
-Es werden keine Pakete benötigt. Im Projektordner einen lokalen Webserver starten, zum Beispiel mit Python:
+No package installation is required. From the repository directory, start any static HTTP server, for example:
 
 ```bash
 python -m http.server 8000
 ```
 
-Anschließend `http://localhost:8000` im Browser öffnen.
+Then open `http://localhost:8000`.
 
-## Tests
+### Tests and publishing
 
-Mit Node.js die Struktur und Antwortdaten des Fragenkatalogs prüfen:
+Run the question-data and application checks with Node.js:
 
 ```bash
 node --test
 ```
 
-## Auf GitHub Pages veröffentlichen
+The GitHub Actions workflow in `.github/workflows/pages.yml` publishes the static site to GitHub Pages when changes are pushed to `main`. Enable **Settings → Pages → GitHub Actions** in the repository.
 
-Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die statische Website bei jedem Push auf `main`.
+## Deutsch
 
-1. In GitHub **Settings → Pages** öffnen.
-2. Unter **Build and deployment** als Quelle **GitHub Actions** auswählen.
-3. Änderungen nach `main` übertragen. Den Veröffentlichungsstatus zeigt der Tab **Actions**.
+Kostenlose, unabhängige Übungswebsite für den Einbürgerungstest mit Deutsch-Lernbeispielen von A1 bis C1. Die Nutzung funktioniert ohne Konto; die Website kann als progressive Web-App installiert werden.
 
-## Projektdateien
+### Funktionen
 
-- `index.html` – deutsche Benutzeroberfläche, Themenauswahl und FAQ
-- `styles.css` – Gestaltung für Desktop und Mobilgeräte
-- `app.js` – Simulation, Wissensrunden, Lernmodule, Fortschritt, Navigation und Auswertung
-- `questions.js` – selbst erstellter Übungsfragenpool
-- `tests/questions.test.js` – automatisierte Strukturprüfungen des Fragenkatalogs
-- `manifest.webmanifest`, `sw.js`, `icon.svg` – PWA-Metadaten, Offline-Cache und App-Symbol
+- 300 selbst erstellte Fragevarianten, Themenrunden und wählbare Rundengrößen.
+- Eine 33-Fragen-Übungssimulation mit 60 Minuten und drei Fragen zum gewählten Bundesland. Die Fragen sind keine amtlichen BAMF-Originalfragen; das Ergebnis ist kein amtliches Prüfungsergebnis.
+- Antworten und Erklärungen ansehen, falsche Fragen wiederholen und einen Fehlerbericht drucken.
+- Deutsch-Lernbeispiele von A1 bis C1 mit Wortschatz, Grammatik, Diktat und Browser-Sprachausgabe.
+- Optionaler Lernzähler pro Frage im aktuellen Browser. Das Speichern ist standardmäßig ausgeschaltet; Antworttexte werden nicht dauerhaft gespeichert.
+- Freiwilliger Check-in ohne Punktzahl. Er ist weder psychologische Diagnostik noch ein Krisenangebot.
+- Installierbare PWA mit zwischengespeichertem App-Grundgerüst für die Offline-Nutzung nach dem ersten Besuch.
+
+### Rechtliches, Datenschutz und Kontakt
+
+Die zentrale [Seite mit rechtlichen Informationen](legal.html) bündelt Anbieterangaben, Datenschutz, lokale Speicherung und Offline-Cache, Nutzungsbedingungen, Hinweise zur Barrierefreiheit und Kontakt. Die Texte sind keine Rechtsberatung und garantieren keine Rechtskonformität. **Der Betreiber muss eine vollständige Postanschrift und alle sonst erforderlichen Anbieterangaben ergänzen und prüfen, bevor die Seite als vollständiges Impressum gelten kann.** Es wurden keine Anschrift und keine Unternehmensangaben erfunden.
+
+Die Anwendung hat kein Konto, kein eigenes Backend, kein Analyse-Skript und keinen Werbetracker. Quiz- und Check-in-Antworten bleiben nur im Arbeitsspeicher der Seite. Wenn aktiviert, speichert `localStorage` ausschließlich Versuchs- und Richtig-Zähler pro Frage. Der Service Worker speichert gleich-originige App-Dateien für die Offline-Nutzung. Der Hosting-Anbieter kann nach seinen eigenen Bedingungen technische Zugriffsdaten verarbeiten. E-Mail-Links öffnen das Mailprogramm und versenden nichts automatisch.
+
+Die Website ist eine unabhängige Lernhilfe, steht nicht mit dem BAMF in Verbindung und bietet keine Rechts-, Aufenthalts-, medizinische oder psychologische Beratung.
+
+Kontakt: [ruslanfridenli@proton.me](mailto:ruslanfridenli@proton.me)
+
+### Lokal starten
+
+Es ist keine Paketinstallation nötig. Im Projektordner einen statischen HTTP-Server starten, zum Beispiel:
+
+```bash
+python -m http.server 8000
+```
+
+Danach `http://localhost:8000` öffnen.
+
+### Tests und Veröffentlichung
+
+Fragenkatalog und Anwendungsstruktur mit Node.js prüfen:
+
+```bash
+node --test
+```
+
+Der GitHub-Actions-Workflow unter `.github/workflows/pages.yml` veröffentlicht die statische Website nach einem Push auf `main` bei GitHub Pages. Dafür im Repository **Settings → Pages → GitHub Actions** als Quelle einstellen.

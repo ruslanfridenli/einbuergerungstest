@@ -400,6 +400,10 @@
     learningModule.append(vocabularyCard, contextCard, grammarCard, listeningCard);
   }
 
+  function getScrollBehavior() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  }
+
   function showScreen(screen) {
     if (screen !== quizScreen) stopTimer();
     homeScreen.hidden = screen !== homeScreen;
@@ -407,7 +411,7 @@
     resultScreen.hidden = screen !== resultScreen;
     if (screen === homeScreen) document.querySelector("#setup-title").focus({ preventScroll: true });
     if (screen === resultScreen) document.querySelector("#result-title").focus({ preventScroll: true });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: getScrollBehavior() });
   }
 
   function getModeQuestions(mode) {
@@ -447,7 +451,7 @@
 
   function startTest() {
     if (selectedMode === "learning") {
-      learningModule.scrollIntoView({ behavior: "smooth", block: "start" });
+      learningModule.scrollIntoView({ behavior: getScrollBehavior(), block: "start" });
       learningLevel.focus({ preventScroll: true });
       return;
     }
@@ -773,7 +777,7 @@
     const label = dark ? "Helles Design einschalten" : "Dunkles Design einschalten";
     event.currentTarget.setAttribute("aria-label", label);
     event.currentTarget.title = label;
-    document.querySelector('meta[name="theme-color"]').content = dark ? "#121b19" : "#f2f4ef";
+    document.querySelector('meta[name="theme-color"]').content = dark ? "#120d1f" : "#f7f3fc";
   });
   learningLevel.addEventListener("change", renderLearningModule);
   progressToggle.addEventListener("change", () => {
@@ -845,7 +849,7 @@
     if (reviewVisible) renderReview();
     panel.hidden = !reviewVisible;
     event.currentTarget.textContent = reviewVisible ? "Antworten ausblenden" : "Antworten ansehen";
-    if (reviewVisible) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (reviewVisible) panel.scrollIntoView({ behavior: getScrollBehavior(), block: "start" });
   });
   document.querySelector("#review-button-reflection").addEventListener("click", (event) => {
     const panel = document.querySelector("#review-panel");
@@ -853,7 +857,7 @@
     if (reviewVisible) renderReview();
     panel.hidden = !reviewVisible;
     event.currentTarget.textContent = reviewVisible ? "Antworten ausblenden" : "Meine Antworten ansehen";
-    if (reviewVisible) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (reviewVisible) panel.scrollIntoView({ behavior: getScrollBehavior(), block: "start" });
   });
 
   window.addEventListener("keydown", (event) => {
