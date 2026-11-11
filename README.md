@@ -21,6 +21,8 @@ Der amtliche Einbürgerungstest umfasst 33 Fragen. Die Testlängen und Ergebniss
 
 Der Check-in ist eine kurze Einladung zum Innehalten. Er ist **kein psychologischer Test**, kein wissenschaftlich validiertes Instrument und kann keine psychische Erkrankung erkennen. Er bietet keine medizinische, therapeutische oder rechtliche Beratung. Antworten werden nur vorübergehend im Arbeitsspeicher der geöffneten Seite gehalten; die Anwendung sendet sie nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten.
 
+Für freiwillige Rückmeldungen gibt es einen E-Mail-Kontakt zu `ruslanfridenli@proton.me`. Der Link öffnet eine leere Nachricht im Mailprogramm der besuchenden Person; Antworten aus Übungen werden nicht an E-Mails angehängt oder automatisch weitergeleitet. Bitte keine sensiblen Gesundheits- oder persönlichen Daten per E-Mail senden.
+
 Die Inhalte versprechen weder ein bestimmtes Prüfungsergebnis noch eine universelle rechtliche Bewertung. Bei persönlicher Belastung wende dich an eine qualifizierte Fachperson oder eine örtliche Beratungsstelle. Bei akuter Gefahr nutze den örtlichen Notruf; in Deutschland bietet die [TelefonSeelsorge](https://www.telefonseelsorge.de/) Unterstützung.
 
 ## Lokal starten

@@ -55,3 +55,11 @@ test("the self-reflection activity is explicitly non-clinical and unscored", () 
   assert.match(app, /const reflectionQuestions = \[/);
   assert.match(app, /if \(isReflection\)/);
 });
+
+test("email contact is voluntary and never includes quiz answers", () => {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const app = readFileSync(path.join(root, "app.js"), "utf8");
+  assert.match(html, /mailto:ruslanfridenli@proton\.me/);
+  assert.match(html, /Antworten aus den Übungen werden weder angehängt noch automatisch verschickt/);
+  assert.doesNotMatch(app, /mailto:|sendBeacon|XMLHttpRequest|fetch\s*\(/);
+});
