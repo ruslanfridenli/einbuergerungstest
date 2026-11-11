@@ -22,7 +22,20 @@
   const savedProgress = document.querySelector("#saved-progress");
   const learningModule = document.querySelector("#learning-module");
   const learningLevel = document.querySelector("#learning-level");
+  const supportCopyStatus = document.querySelector("#support-copy-status");
   const progressKey = "einbuergerungstest-lernfortschritt-v1";
+
+  document.querySelectorAll(".copy-address").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const address = document.querySelector(`#${button.dataset.copyTarget}`);
+      try {
+        await navigator.clipboard.writeText(address.textContent.trim());
+        supportCopyStatus.textContent = "Adresse kopiert.";
+      } catch {
+        supportCopyStatus.textContent = "Kopieren nicht möglich. Bitte markiere die Adresse und kopiere sie manuell.";
+      }
+    });
+  });
 
   const reflectionQuestions = [
     {

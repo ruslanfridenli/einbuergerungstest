@@ -66,6 +66,28 @@ test("email contact is voluntary and never includes quiz answers", () => {
   assert.doesNotMatch(app, /sendBeacon|XMLHttpRequest|fetch\s*\(/);
 });
 
+test("the project support section shows the exact donation addresses and GitHub link", () => {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const app = readFileSync(path.join(root, "app.js"), "utf8");
+  const readme = readFileSync(path.join(root, "README.md"), "utf8");
+  const addresses = [
+    "zQpgZ6nGigww7vYpz3Qqxb1BT44kqS567vFaLTeHagS",
+    "0x9c4fE1B2e9a1A9c22312c8296BB088Ca0e8F1B4e",
+    "bc1p2jltk9ya9kyzv35d8kxn7mmg9jqkx66cqtgzqwe75zlr4v9jk4hsv468q7"
+  ];
+
+  assert.match(html, /aria-labelledby="support-title"/);
+  assert.match(html, /aria-live="polite"/);
+  assert.match(html, /class="copy-address"/);
+  assert.match(html, /https:\/\/github\.com\/ruslanfridenli\/einbuergerungstest/);
+  assert.match(app, /navigator\.clipboard\.writeText/);
+  assert.match(app, /Adresse kopiert/);
+  for (const address of addresses) {
+    assert.ok(html.includes(address), `Missing website address: ${address}`);
+    assert.ok(readme.includes(address), `Missing README address: ${address}`);
+  }
+});
+
 test("the simulation has 33 practice questions, a 60-minute timer and state-specific questions", () => {
   const html = readFileSync(path.join(root, "index.html"), "utf8");
   const app = readFileSync(path.join(root, "app.js"), "utf8");
