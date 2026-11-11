@@ -1,22 +1,27 @@
 # Einbürgerungstest – Üben in deinem Tempo
 
-Eine kostenlose, responsive Lernwebsite zur Vorbereitung auf den deutschen Einbürgerungstest. Wähle 10, 30, 50, 100 oder 300 Fragen, beantworte sie in deinem eigenen Tempo und erhalte am Ende eine übersichtliche Auswertung.
+Eine kostenlose, responsive Lernwebsite mit unabhängigen Wissensübungen zu Demokratie, Geschichte und Zusammenleben sowie einem freiwilligen Check-in zur Selbstreflexion. Die Inhalte sind deutschsprachig und laufen ohne Anmeldung, Backend, Tracking-Skript oder externe JavaScript-Bibliotheken.
 
-## Funktionen
+## Angebote
 
-- 300 selbst erstellte Frageformulierungen aus 100 Themenfeldern zu Demokratie, Geschichte, Geografie und Zusammenleben.
-- Fünf frei wählbare Testlängen; Fragen und Antwortmöglichkeiten werden gemischt.
-- Navigation zwischen Fragen, markierte Antworten und eine Übersicht zum Testfortschritt.
-- Ergebnis mit richtigen, falschen und offenen Antworten sowie Prozentwert.
-- Antwortübersicht nach dem Test.
-- Läuft ohne Anmeldung, Backend, Tracking oder externe JavaScript-Bibliotheken.
-- Verantwortlich für das Projekt: **ruslan**.
+- 300 selbst erstellte Frageformulierungen aus 100 Themenfeldern; jede Formulierung hat vier Antwortmöglichkeiten.
+- Themenrunden zu Demokratie und Grundrechten, Geschichte sowie Alltag und Zusammenleben.
+- Wählbare Wissensrunden mit 10, 30, 50, 100 oder 300 Fragen (abhängig von der Themenauswahl).
+- Gemischte Fragen und Antwortmöglichkeiten, Navigation, Fortschrittsanzeige und Auswertung.
+- Ein freiwilliger, nicht-klinischer Selbstreflexions-Check-in ohne Punktzahl, Diagnose oder wissenschaftlichen Anspruch.
+- Responsive Darstellung, Tastaturbedienung und reduzierte Animationen bei entsprechender Systemeinstellung.
 
-## Hinweis zum Fragenkatalog
+## Amtliche Prüfung und Quellen
 
-Die Fragen auf dieser Website sind **selbst erstelltes Übungsmaterial und keine amtlichen BAMF-Originalfragen**. Die 300 Formulierungen behandeln 100 Themenfelder in verschiedenen Fragevarianten. Die Website ist nicht mit dem BAMF verbunden oder von ihm bestätigt und ersetzt weder den offiziellen Fragenkatalog noch die Prüfung. Für die aktuellen Originalmaterialien und verbindliche Informationen besuche die [Website des BAMF zum Einbürgerungstest](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html).
+Die Fragen auf dieser Website sind **selbst erstelltes Übungsmaterial und keine amtlichen BAMF-Originalfragen**. Die Website ist unabhängig, nicht mit dem BAMF verbunden oder von ihm bestätigt und ersetzt weder amtliche Materialien noch eine Prüfung. Für aktuelle Informationen zum Einbürgerungstest besuche die [Website des BAMF](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html).
 
-Der amtliche Einbürgerungstest besteht aus 33 Fragen. Die Anzahl, Auswahl und Darstellung in dieser Lernwebsite dienen ausschließlich dem Üben und sind kein amtliches Prüfungsergebnis.
+Der amtliche Einbürgerungstest umfasst 33 Fragen. Die Testlängen und Ergebnisse dieser Lernwebsite dienen ausschließlich dem Üben und sind kein amtliches Prüfungsergebnis.
+
+## Selbstreflexion, Sicherheit und Datenschutz
+
+Der Check-in ist eine kurze Einladung zum Innehalten. Er ist **kein psychologischer Test**, kein wissenschaftlich validiertes Instrument und kann keine psychische Erkrankung erkennen. Er bietet keine medizinische, therapeutische oder rechtliche Beratung. Antworten werden nur vorübergehend im Arbeitsspeicher der geöffneten Seite gehalten; die Anwendung sendet sie nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten.
+
+Die Inhalte versprechen weder ein bestimmtes Prüfungsergebnis noch eine universelle rechtliche Bewertung. Bei persönlicher Belastung wende dich an eine qualifizierte Fachperson oder eine örtliche Beratungsstelle. Bei akuter Gefahr nutze den örtlichen Notruf; in Deutschland bietet die [TelefonSeelsorge](https://www.telefonseelsorge.de/) Unterstützung.
 
 ## Lokal starten
 
@@ -28,6 +33,14 @@ python -m http.server 8000
 
 Anschließend `http://localhost:8000` im Browser öffnen.
 
+## Tests
+
+Mit Node.js die Struktur und Antwortdaten des Fragenkatalogs prüfen:
+
+```bash
+node --test
+```
+
 ## Auf GitHub Pages veröffentlichen
 
 Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die statische Website bei jedem Push auf `main`.
@@ -38,11 +51,8 @@ Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die statische W
 
 ## Projektdateien
 
-<img width="1880" height="936" alt="image" src="https://github.com/user-attachments/assets/08225772-c503-4a79-9a24-860b78ef80f0" />
-powered by ruslan.
-
-
-- `index.html` – deutsche Benutzeroberfläche
+- `index.html` – deutsche Benutzeroberfläche, Themenauswahl und FAQ
 - `styles.css` – Gestaltung für Desktop und Mobilgeräte
-- `app.js` – Testablauf, Navigation und Auswertung
+- `app.js` – Testablauf, Reflexions-Check-in, Navigation und Auswertung
 - `questions.js` – selbst erstellter Übungsfragenpool
+- `tests/questions.test.js` – automatisierte Strukturprüfungen des Fragenkatalogs

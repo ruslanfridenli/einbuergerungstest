@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f5f2eb">
-    <meta name="description" content="Übe für den Einbürgerungstest: Wähle 10 bis 300 Fragen und sieh sofort, wie du abgeschnitten hast.">
-    <title>Einbürgerungstest — Sicher vorbereitet</title>
+    <meta name="description" content="Unabhängige Übungsfragen zu Demokratie, Geschichte und Alltag sowie ein freiwilliger, nicht-klinischer Selbstreflexions-Check.">
+    <title>Einbürgerungstest — Wissen und Selbstreflexion</title>
     <link rel="stylesheet" href="styles.css">
     <script src="questions.js" defer></script>
     <script src="app.js" defer></script>
@@ -16,20 +16,20 @@
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
         <span>einbürgerungs<span class="brand-light">test</span></span>
       </a>
-      <a class="top-link" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noreferrer">Über den Test <span aria-hidden="true">↗</span></a>
+      <a class="top-link" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noopener noreferrer">Über den Test <span aria-hidden="true">↗</span></a>
     </header>
 
     <main>
       <section id="home-screen" class="home-screen">
         <div class="hero">
           <div class="hero-copy">
-            <div class="eyebrow"><span class="eyebrow-dot"></span> DEIN WEG ZUR EINBÜRGERUNG</div>
-            <h1>Deutschland besser verstehen.<br><span>Gut vorbereitet sein.</span></h1>
-            <p class="hero-lede">Übe in deinem Tempo mit Fragen zu Politik, Geschichte und Zusammenleben — und erfahre direkt, was schon sitzt.</p>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> WISSEN. ORIENTIERUNG. DEIN TEMPO.</div>
+            <h1>Deutschland besser verstehen.<br><span>In deinem Tempo.</span></h1>
+            <p class="hero-lede">Übe Politik, Geschichte und Alltag — oder halte kurz inne. Alle Inhalte sind unabhängig erstellt; dein Wohlbefinden wird hier nicht bewertet.</p>
             <div class="hero-facts">
-              <div><strong>300</strong><span>Übungsfragen</span></div><i aria-hidden="true"></i>
-              <div><strong>5</strong><span>Testlängen</span></div><i aria-hidden="true"></i>
-              <div><strong>0</strong><span>Zeitdruck</span></div>
+              <div><strong>300</strong><span>Wissensfragen</span></div><i aria-hidden="true"></i>
+              <div><strong>4</strong><span>Themenbereiche</span></div><i aria-hidden="true"></i>
+              <div><strong>0</strong><span>Diagnosen</span></div>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -47,39 +47,99 @@
 
         <section class="setup-card" aria-labelledby="setup-title">
           <div class="setup-heading">
-            <div><div class="step-label"><span>01</span> DEIN ÜBUNGSTEST</div><h2 id="setup-title">Wie viele Fragen möchtest du üben?</h2></div>
-            <p>Wähle die Länge, die heute zu dir passt.</p>
+            <div><div class="step-label"><span>01</span> DEIN FORMAT</div><h2 id="setup-title">Was möchtest du heute machen?</h2></div>
+            <p>Wissen üben oder ohne Bewertung innehalten.</p>
           </div>
-          <div class="count-options" role="group" aria-label="Anzahl der Fragen">
-            <button class="count-option" type="button" data-count="10"><strong>10</strong><span>kurz &amp; knackig</span></button>
-            <button class="count-option" type="button" data-count="30"><strong>30</strong><span>eine gute Runde</span></button>
-            <button class="count-option" type="button" data-count="50"><strong>50</strong><span>mehr Sicherheit</span></button>
-            <button class="count-option" type="button" data-count="100"><strong>100</strong><span>intensiv üben</span></button>
-            <button class="count-option selected" type="button" data-count="300"><strong>300</strong><span>alle Übungsfragen</span></button>
+          <div class="mode-options" role="group" aria-label="Übungsformat">
+            <button class="mode-option selected" type="button" data-mode="all" aria-pressed="true">
+              <span class="mode-label">WISSEN</span><strong>Einbürgerung üben</strong><span>Alle Themen und Fragen</span>
+            </button>
+            <button class="mode-option" type="button" data-mode="politics" aria-pressed="false">
+              <span class="mode-label">POLITIK</span><strong>Demokratie &amp; Rechte</strong><span>Staat, Wahlen und Grundgesetz</span>
+            </button>
+            <button class="mode-option" type="button" data-mode="history" aria-pressed="false">
+              <span class="mode-label">GESCHICHTE</span><strong>Geschichte &amp; Erinnerung</strong><span>Wendepunkte und Zeitgeschichte</span>
+            </button>
+            <button class="mode-option" type="button" data-mode="community" aria-pressed="false">
+              <span class="mode-label">ALLTAG</span><strong>Zusammenleben &amp; Alltag</strong><span>Gesellschaft und Bundesländer</span>
+            </button>
+            <button class="mode-option reflection-option" type="button" data-mode="reflection" aria-pressed="false">
+              <span class="mode-label">CHECK-IN</span><strong>Selbstreflexion</strong><span>Freiwillig, ohne Punktzahl</span>
+            </button>
+          </div>
+          <div id="knowledge-setup">
+            <h3 class="count-title">Wie viele Fragen möchtest du üben?</h3>
+            <div class="count-options" role="group" aria-label="Anzahl der Fragen">
+              <button class="count-option" type="button" data-count="10"><strong>10</strong><span>kurz &amp; knackig</span></button>
+              <button class="count-option" type="button" data-count="30"><strong>30</strong><span>eine gute Runde</span></button>
+              <button class="count-option" type="button" data-count="50"><strong>50</strong><span>mehr Sicherheit</span></button>
+              <button class="count-option" type="button" data-count="100"><strong>100</strong><span>intensiv üben</span></button>
+              <button class="count-option" type="button" data-count="300"><strong>300</strong><span>alle Übungsfragen</span></button>
+            </div>
           </div>
           <div class="setup-footer">
-            <span class="privacy-note"><span aria-hidden="true">◈</span> Kostenlos · Ohne Anmeldung · Dein Ergebnis bleibt bei dir</span>
-            <button id="start-button" class="button button-primary" type="button">Test starten <span aria-hidden="true">→</span></button>
+            <span class="privacy-note"><span aria-hidden="true">◈</span> Kostenlos · Ohne Konto · Antworten werden nicht gespeichert</span>
+            <button id="start-button" class="button button-primary" type="button">Übung starten <span aria-hidden="true">→</span></button>
           </div>
-          <p class="catalogue-note">Eigener Übungskatalog zur Vorbereitung — keine amtlichen Originalfragen des BAMF.</p>
+          <p class="catalogue-note">Unabhängiges Lernangebot — keine amtlichen Originalfragen und keine Verbindung zum BAMF.</p>
         </section>
 
         <section class="info-row" aria-label="So funktioniert es">
           <article class="info-item"><div class="info-icon icon-learn" aria-hidden="true">↗</div><div><h3>Lernen ohne Druck</h3><p>Beantworte die Fragen in deinem eigenen Rhythmus. Du kannst jederzeit zurückspringen.</p></div></article>
           <article class="info-item"><div class="info-icon icon-check" aria-hidden="true">✓</div><div><h3>Klar sehen, was sitzt</h3><p>Am Ende bekommst du deine richtigen Antworten, Fehler und deinen persönlichen Prozentwert.</p></div></article>
-          <article class="info-item"><div class="info-icon icon-safe" aria-hidden="true">⌂</div><div><h3>Privat &amp; einfach</h3><p>Kein Konto, keine Datensammlung. Dein Fortschritt wird nur auf diesem Gerät gespeichert.</p></div></article>
+          <article class="info-item"><div class="info-icon icon-safe" aria-hidden="true">⌂</div><div><h3>Antworten bleiben im Moment</h3><p>Die Seite sendet deine Antworten nicht an eine App-Datenbank. Sie werden nicht dauerhaft gespeichert.</p></div></article>
+        </section>
+
+        <section class="official-section" aria-labelledby="official-title">
+          <div class="section-kicker">AMTLICHE INFORMATIONEN</div>
+          <div class="official-content">
+            <div><h2 id="official-title">Für Verbindliches zählt die offizielle Quelle.</h2><p>Hier übst du mit eigenen Frageformulierungen. Aktuelle Informationen und amtliche Materialien zum Einbürgerungstest findest du direkt beim Bundesamt für Migration und Flüchtlinge.</p></div>
+            <a class="button button-secondary" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noopener noreferrer">Zum BAMF <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <section class="faq-section" aria-labelledby="faq-title">
+          <div class="section-kicker">KLARE ANTWORTEN, OHNE KLEINGEDRUCKTES</div>
+          <h2 id="faq-title">FAQ</h2>
+          <p class="faq-intro">Großbuchstaben für die Orientierung. Klare Worte für alles, was wichtig ist.</p>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary><span class="faq-tag">AMTLICH?</span> Ist das ein offizieller Einbürgerungs- oder Politiktest?</summary>
+              <p>Nein. Die Fragen hier sind unabhängig formuliertes Übungsmaterial. Die Website ist weder vom BAMF erstellt noch bestätigt und ersetzt keine Prüfung. Deine Antworten werden von der Anwendung nicht an Behörden übermittelt; dieses Übungsergebnis ist kein amtlicher Nachweis und ändert kein laufendes Verfahren. Aktuelle amtliche Informationen und Materialien findest du beim BAMF.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-tag">SELBSTREFLEXION</span> Ist der Check-in ein psychologischer Test?</summary>
+              <p>Nein. Der freiwillige Check-in ist eine kurze Selbstreflexion ohne Punktzahl, Diagnose oder wissenschaftlichen Anspruch. Er kann weder psychische Erkrankungen erkennen noch eine Beratung oder Behandlung ersetzen.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-tag">DEINE DATEN</span> Werden meine Antworten gespeichert oder weitergegeben?</summary>
+              <p>Die Anwendung sendet deine Antworten nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten; siehe auch dessen Datenschutzhinweise.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-tag">SICHERHEIT</span> Ist die Nutzung risikofrei und immer unbedenklich?</summary>
+              <p>Die Wissensübungen sind als freiwillige Lernhilfe gedacht; eine Wirkung oder ein bestimmtes Prüfungsergebnis wird nicht versprochen. Der Check-in ist nicht für Krisen oder medizinische Entscheidungen gedacht. Wenn dich etwas belastet, wende dich bitte an eine qualifizierte Fachperson oder eine örtliche Beratungsstelle. Bei akuter Gefahr nutze den örtlichen Notruf. In Deutschland erreichst du die TelefonSeelsorge unter <a href="https://www.telefonseelsorge.de/" target="_blank" rel="noopener noreferrer">telefonseelsorge.de</a>.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-tag">RECHTLICHES</span> Ist die Nutzung legal und ersetzt sie Rechtsberatung?</summary>
+              <p>Die Seite ist als unabhängiges Bildungs- und Selbstreflexionsangebot für freiwillige Übungen gedacht. Sie erteilt keine Rechts-, Aufenthalts- oder Gesundheitsberatung; ihre Inhalte sind keine amtliche Entscheidung und geben keine pauschale Garantie für jeden Rechtsraum oder Einzelfall. Für verbindliche Auskünfte wende dich an zuständige Behörden oder qualifizierte Beratungsstellen.</p>
+            </details>
+            <details class="faq-item">
+              <summary><span class="faq-tag">SCHREIBWEISE</span> Warum wechseln große und kleine Buchstaben?</summary>
+              <p>Großbuchstaben markieren kurze Rubriken und helfen beim Überfliegen; Fließtext bleibt in normaler Schreibweise besser lesbar. Das ist ein Gestaltungsmittel und verändert weder Bedeutung noch Verbindlichkeit der Inhalte.</p>
+            </details>
+          </div>
         </section>
       </section>
 
       <section id="quiz-screen" class="quiz-screen" hidden aria-labelledby="question-text">
         <div class="quiz-top">
-          <button id="exit-button" class="text-button" type="button"><span aria-hidden="true">←</span> Test beenden</button>
-          <div class="quiz-caption"><span class="mini-flag"><i></i><i></i><i></i></span> ÜBUNGSTEST</div>
+          <button id="exit-button" class="text-button" type="button"><span aria-hidden="true">←</span> Beenden</button>
+          <div class="quiz-caption"><span class="mini-flag"><i></i><i></i><i></i></span> <span id="quiz-mode-label">ÜBUNG</span></div>
           <div id="quiz-count" class="quiz-count">FRAGE <strong>01</strong> / 10</div>
         </div>
         <div class="progress-track" role="progressbar" aria-label="Testfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
         <div class="quiz-layout">
-          <aside class="quiz-aside"><span class="step-label"><span>02</span> DEIN TEST</span><h2>Frage für Frage.<br><em>Du schaffst das.</em></h2><p>Lies die Frage in Ruhe und wähle die Antwort, die du für richtig hältst.</p><div class="aside-tip"><span aria-hidden="true">✦</span><p><b>Gut zu wissen</b><br>Du kannst deine Auswahl ändern, solange der Test läuft.</p></div></aside>
+          <aside class="quiz-aside"><span class="step-label"><span>02</span> DEIN FORMAT</span><h2>Frage für Frage.<br><em>In deinem Tempo.</em></h2><p id="quiz-instructions">Lies die Frage in Ruhe und wähle die Antwort, die du für richtig hältst.</p><div class="aside-tip"><span aria-hidden="true">✦</span><p><b>Gut zu wissen</b><br>Du kannst deine Auswahl ändern, solange der Test läuft.</p></div></aside>
           <section class="question-card" aria-live="polite">
             <div class="question-meta"><span id="question-category">POLITIK &amp; DEMOKRATIE</span><span id="answered-count">0 beantwortet</span></div>
             <h1 id="question-text" tabindex="-1"></h1>
@@ -91,22 +151,29 @@
       </section>
 
       <section id="result-screen" class="result-screen" hidden aria-labelledby="result-title">
-        <div class="result-heading"><div class="step-label"><span>03</span> DEIN ERGEBNIS</div><h1 id="result-title">Du hast es geschafft.</h1><p>Jede Frage war ein Schritt nach vorn. Schau dir an, wie du abgeschnitten hast.</p></div>
+        <div class="result-heading"><div class="step-label"><span>03</span> <span id="result-step-label">DEIN ERGEBNIS</span></div><h1 id="result-title">Du hast es geschafft.</h1><p id="result-heading-copy">Jede Frage war ein Schritt nach vorn. Schau dir an, wie du abgeschnitten hast.</p></div>
         <div class="result-card">
-          <div class="score-panel"><div class="score-ring"><div><strong id="score-percent">0%</strong><span>RICHTIG</span></div></div><p id="result-message">Weiter üben lohnt sich — du bist auf dem Weg.</p></div>
-          <div class="result-stats">
+          <div id="score-panel" class="score-panel"><div class="score-ring"><div><strong id="score-percent">0%</strong><span>RICHTIG</span></div></div><p id="result-message">Weiter üben lohnt sich — du bist auf dem Weg.</p></div>
+          <div id="result-stats" class="result-stats">
             <div class="stat-row"><span><i class="stat-dot correct-dot"></i>Richtig beantwortet</span><strong id="correct-total">0</strong></div>
             <div class="stat-row"><span><i class="stat-dot wrong-dot"></i>Falsch beantwortet</span><strong id="wrong-total">0</strong></div>
             <div class="stat-row"><span><i class="stat-dot open-dot"></i>Nicht beantwortet</span><strong id="skipped-total">0</strong></div>
             <div class="result-divider"></div><div class="stat-row total-row"><span>Fragen insgesamt</span><strong id="total-count">0</strong></div>
             <div class="result-actions"><button id="review-button" class="button button-secondary" type="button">Antworten ansehen</button><button id="retry-button" class="button button-primary" type="button">Neuen Test starten <span aria-hidden="true">→</span></button></div>
           </div>
+          <div id="reflection-result" class="reflection-result" hidden>
+            <div class="reflection-mark" aria-hidden="true">○</div>
+            <h2>Danke, dass du dir einen Moment genommen hast.</h2>
+            <p>Deine Antworten sind kein Testergebnis und werden nicht bewertet. Nimm daraus nur mit, was sich für dich stimmig anfühlt.</p>
+            <p class="support-note">Wenn du Unterstützung brauchst, sprich mit einer qualifizierten Fachperson oder einer örtlichen Beratungsstelle. Bei akuter Gefahr wende dich an den örtlichen Notruf.</p>
+            <div class="result-actions"><button id="review-button-reflection" class="button button-secondary" type="button">Meine Antworten ansehen</button><button id="retry-button-reflection" class="button button-primary" type="button">Zur Startseite</button></div>
+          </div>
         </div>
         <div id="review-panel" class="review-panel" hidden><div class="review-heading"><div class="step-label"><span>↳</span> DEINE ANTWORTEN</div><h2>Das hast du geantwortet</h2></div><div id="review-list" class="review-list"></div></div>
-        <p class="catalogue-note result-note">Übungsergebnis — kein amtliches Prüfungsergebnis.</p>
+        <p id="result-note" class="catalogue-note result-note">Übungsergebnis — kein amtliches Prüfungsergebnis.</p>
       </section>
     </main>
-    <footer class="footer"><span>Mit Ruhe lernen. Mit Zuversicht ankommen.</span><span>Ein persönliches Lernprojekt von <b>ruslan</b></span></footer>
+    <footer class="footer"><span>Mit Ruhe lernen. Mit Zuversicht ankommen.</span><a href="https://github.com/ruslanfridenli/einbuergerungstest">Quellcode ansehen</a></footer>
     <noscript><p class="noscript">Bitte aktiviere JavaScript, um den Übungstest zu verwenden.</p></noscript>
   </body>
 </html>
