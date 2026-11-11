@@ -3,9 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f2eb">
-    <meta name="description" content="Unabhängige Übungsfragen zu Demokratie, Geschichte und Alltag sowie ein freiwilliger, nicht-klinischer Selbstreflexions-Check.">
-    <title>Einbürgerungstest — Wissen und Selbstreflexion</title>
+    <meta name="theme-color" content="#17231f">
+    <meta name="description" content="Einbürgerungstest üben: unabhängige 33-Fragen-Simulation, Lernmodule von A1 bis C1 und verständliche Orientierung für den Alltag in Deutschland.">
+    <meta property="og:title" content="Einbürgerungstest — Lernen in deinem Tempo">
+    <meta property="og:description" content="Übe selbstständig mit einer unabhängigen Prüfungssimulation, Deutsch-Lernmodulen und Alltagsthemen.">
+    <meta property="og:type" content="website">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <title>Einbürgerungstest — Lernen in deinem Tempo</title>
     <link rel="stylesheet" href="styles.css">
     <script src="questions.js" defer></script>
     <script src="app.js" defer></script>
@@ -16,20 +21,23 @@
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
         <span>einbürgerungs<span class="brand-light">test</span></span>
       </a>
-      <a class="top-link" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noopener noreferrer">Über den Test <span aria-hidden="true">↗</span></a>
+      <div class="topbar-actions">
+        <a class="top-link" href="#official-title">Offizielle Infos <span aria-hidden="true">↗</span></a>
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Dunkles Design einschalten" title="Dunkles Design einschalten"><span aria-hidden="true">◐</span></button>
+      </div>
     </header>
 
     <main>
       <section id="home-screen" class="home-screen">
         <div class="hero">
           <div class="hero-copy">
-            <div class="eyebrow"><span class="eyebrow-dot"></span> WISSEN. ORIENTIERUNG. DEIN TEMPO.</div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> WISSEN. SPRACHE. DEIN TEMPO.</div>
             <h1>Deutschland besser verstehen.<br><span>In deinem Tempo.</span></h1>
-            <p class="hero-lede">Übe Politik, Geschichte und Alltag — oder halte kurz inne. Alle Inhalte sind unabhängig erstellt; dein Wohlbefinden wird hier nicht bewertet.</p>
+            <p class="hero-lede">Bereite dich mit klaren Lernschritten auf den Einbürgerungstest vor, verbessere dein Deutsch und finde verlässliche Anlaufstellen für deinen Alltag.</p>
             <div class="hero-facts">
               <div><strong>300</strong><span>Wissensfragen</span></div><i aria-hidden="true"></i>
-              <div><strong>4</strong><span>Themenbereiche</span></div><i aria-hidden="true"></i>
-              <div><strong>0</strong><span>Diagnosen</span></div>
+              <div><strong>33</strong><span>Fragen pro Simulation</span></div><i aria-hidden="true"></i>
+              <div><strong>A1–C1</strong><span>Deutsch lernen</span></div>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -37,17 +45,17 @@
             <div class="art-card art-card-back"><span>WISSEN</span><b>+</b></div>
             <div class="art-card art-card-front">
               <div class="art-card-top"><span class="mini-flag"><i></i><i></i><i></i></span><span>DEIN LERNMOMENT</span></div>
-              <div class="art-check">✓</div><p>Schritt für Schritt<br><b>zum Ziel.</b></p>
+              <div class="art-check">✓</div><p>Schritt für Schritt<br><b>sicherer werden.</b></p>
               <div class="art-progress"><span></span></div>
               <div class="art-card-bottom"><span>FORTSCHRITT</span><b>01 / 10</b></div>
             </div>
-            <div class="art-note"><span>✦</span> Dein Tempo. Dein Erfolg.</div>
+            <div class="art-note"><span>✦</span> Wissen wächst mit jedem Schritt.</div>
           </div>
         </div>
 
         <section class="setup-card" aria-labelledby="setup-title">
           <div class="setup-heading">
-            <div><div class="step-label"><span>01</span> DEIN FORMAT</div><h2 id="setup-title">Was möchtest du heute machen?</h2></div>
+            <div><div class="step-label"><span>01</span> DEIN FORMAT</div><h2 id="setup-title" tabindex="-1">Was möchtest du heute machen?</h2></div>
             <p>Wissen üben oder ohne Bewertung innehalten.</p>
           </div>
           <div class="mode-options" role="group" aria-label="Übungsformat">
@@ -63,9 +71,26 @@
             <button class="mode-option" type="button" data-mode="community" aria-pressed="false">
               <span class="mode-label">ALLTAG</span><strong>Zusammenleben &amp; Alltag</strong><span>Gesellschaft und Bundesländer</span>
             </button>
+            <button class="mode-option simulation-option" type="button" data-mode="simulation" aria-pressed="false">
+              <span class="mode-label">PRÜFUNGSSIMULATION</span><strong>33 Fragen · 60 Minuten</strong><span>Mit drei Fragen zu deinem Bundesland</span>
+            </button>
+            <button class="mode-option" type="button" data-mode="learning" aria-pressed="false">
+              <span class="mode-label">DEUTSCH LERNEN</span><strong>Deutsch A1 bis C1</strong><span>Grammatik, Wortschatz und Alltag</span>
+            </button>
             <button class="mode-option reflection-option" type="button" data-mode="reflection" aria-pressed="false">
               <span class="mode-label">CHECK-IN</span><strong>Selbstreflexion</strong><span>Freiwillig, ohne Punktzahl</span>
             </button>
+          </div>
+          <div id="state-setup" class="state-setup" hidden>
+            <label for="state-select">In welchem Bundesland wohnst du?</label>
+            <select id="state-select" name="bundesland">
+              <option value="">Bitte auswählen</option>
+              <option>Baden-Württemberg</option><option>Bayern</option><option>Berlin</option><option>Brandenburg</option>
+              <option>Bremen</option><option>Hamburg</option><option>Hessen</option><option>Mecklenburg-Vorpommern</option>
+              <option>Niedersachsen</option><option>Nordrhein-Westfalen</option><option>Rheinland-Pfalz</option><option>Saarland</option>
+              <option>Sachsen</option><option>Sachsen-Anhalt</option><option>Schleswig-Holstein</option><option>Thüringen</option>
+            </select>
+            <p>Die Auswahl erstellt drei passende Übungsfragen. Die Fragen sind unabhängig formuliert und nicht amtlich.</p>
           </div>
           <div id="knowledge-setup">
             <h3 class="count-title">Wie viele Fragen möchtest du üben?</h3>
@@ -78,23 +103,62 @@
             </div>
           </div>
           <div class="setup-footer">
-            <span class="privacy-note"><span aria-hidden="true">◈</span> Kostenlos · Ohne Konto · Antworten werden nicht gespeichert</span>
-            <button id="start-button" class="button button-primary" type="button">Übung starten <span aria-hidden="true">→</span></button>
+            <div class="setup-actions">
+              <label class="save-progress"><input id="save-progress-toggle" type="checkbox"><span>Fortschritt auf diesem Gerät merken</span></label>
+              <p id="progress-status" class="progress-status" aria-live="polite">Standardmäßig wird nichts gespeichert.</p>
+              <button id="start-button" class="button button-primary" type="button">Übung starten <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div id="saved-progress" class="saved-progress" hidden>
+            <div><strong id="saved-progress-total">0</strong><span>beantwortete Übungsfragen auf diesem Gerät</span></div>
+            <button id="reset-progress" class="text-button" type="button">Gespeicherten Fortschritt löschen</button>
           </div>
           <p class="catalogue-note">Unabhängiges Lernangebot — keine amtlichen Originalfragen und keine Verbindung zum BAMF.</p>
         </section>
 
         <section class="info-row" aria-label="So funktioniert es">
           <article class="info-item"><div class="info-icon icon-learn" aria-hidden="true">↗</div><div><h3>Lernen ohne Druck</h3><p>Beantworte die Fragen in deinem eigenen Rhythmus. Du kannst jederzeit zurückspringen.</p></div></article>
-          <article class="info-item"><div class="info-icon icon-check" aria-hidden="true">✓</div><div><h3>Klar sehen, was sitzt</h3><p>Am Ende bekommst du deine richtigen Antworten, Fehler und deinen persönlichen Prozentwert.</p></div></article>
-          <article class="info-item"><div class="info-icon icon-safe" aria-hidden="true">⌂</div><div><h3>Antworten bleiben im Moment</h3><p>Die Seite sendet deine Antworten nicht an eine App-Datenbank. Sie werden nicht dauerhaft gespeichert.</p></div></article>
+          <article class="info-item"><div class="info-icon icon-check" aria-hidden="true">✓</div><div><h3>Aus Fehlern lernen</h3><p>Sieh dir Erklärungen an und übe falsche oder offene Fragen noch einmal.</p></div></article>
+          <article class="info-item"><div class="info-icon icon-safe" aria-hidden="true">⌂</div><div><h3>Deine Daten bleiben bei dir</h3><p>Nur wenn du es einschaltest, speichert dein Browser einen Lernzähler — niemals deine Antworten.</p></div></article>
+        </section>
+
+        <section id="learning-section" class="learning-section" aria-labelledby="learning-title">
+          <div class="section-kicker">DEUTSCH FÜR DEN ALLTAG</div>
+          <div class="learning-heading">
+            <div><h2 id="learning-title">Lernen, das dich weiterbringt.</h2><p>Wähle dein Niveau und übe mit Grammatik, wichtigen Wörtern und Situationen aus dem Leben in Deutschland.</p></div>
+            <label class="level-picker" for="learning-level">Mein Niveau
+              <select id="learning-level" aria-label="Deutsch-Niveau auswählen">
+                <option value="A1">A1 · Einstieg</option><option value="A2">A2 · Grundlagen</option>
+                <option value="B1">B1 · Selbstständig</option><option value="B2">B2 · Sicher</option>
+                <option value="C1">C1 · Fortgeschritten</option>
+              </select>
+            </label>
+          </div>
+          <div id="learning-module" class="learning-module" aria-live="polite"></div>
         </section>
 
         <section class="official-section" aria-labelledby="official-title">
           <div class="section-kicker">AMTLICHE INFORMATIONEN</div>
           <div class="official-content">
-            <div><h2 id="official-title">Für Verbindliches zählt die offizielle Quelle.</h2><p>Hier übst du mit eigenen Frageformulierungen. Aktuelle Informationen und amtliche Materialien zum Einbürgerungstest findest du direkt beim Bundesamt für Migration und Flüchtlinge.</p></div>
+            <div><h2 id="official-title">Gut vorbereitet. Gut informiert.</h2><p>Die Simulation folgt dem üblichen Format mit 33 Fragen, 60 Minuten und drei Länderfragen. Sie nutzt eigene Formulierungen und ersetzt keine Prüfung. Aktuelle amtliche Informationen und Materialien findest du beim Bundesamt für Migration und Flüchtlinge.</p></div>
             <a class="button button-secondary" href="https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html" target="_blank" rel="noopener noreferrer">Zum BAMF <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <section class="vhs-section" aria-labelledby="vhs-title">
+          <div class="section-kicker">DEIN NÄCHSTER SCHRITT</div>
+          <div class="vhs-content">
+            <div><h2 id="vhs-title">Möchtest du dich zum Test anmelden?</h2><p>Einbürgerungstests werden häufig bei Volkshochschulen und anderen zugelassenen Prüfstellen angeboten. Frage direkt bei deiner örtlichen VHS oder Prüfstelle nach Terminen, Anmeldung, Gebühr und freien Plätzen.</p></div>
+            <div class="vhs-checklist">
+              <h3>Das solltest du vorher klären</h3>
+              <ul>
+                <li>Welche Ausweisdokumente zur Anmeldung und am Prüfungstag verlangt werden.</li>
+                <li>Ob ein Anmeldeformular, ein aktuelles Passfoto oder eine Gebühr nötig ist.</li>
+                <li>Bis wann du dich anmelden oder absagen kannst.</li>
+              </ul>
+              <p>Die Anforderungen unterscheiden sich je nach Prüfstelle. Lass dir die verbindliche Liste dort bestätigen; diese Seite kann keine individuelle Rechtsberatung geben. Der bundesweite Kursfinder hilft bei der Suche nach Angeboten.</p>
+              <a class="button button-secondary" href="https://www.volkshochschule.de/kursfinder.php" target="_blank" rel="noopener noreferrer">VHS-Kursfinder öffnen <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </section>
 
@@ -113,7 +177,7 @@
             </details>
             <details class="faq-item">
               <summary><span class="faq-tag">DEINE DATEN</span> Werden meine Antworten gespeichert oder weitergegeben?</summary>
-              <p>Die Anwendung sendet deine Antworten nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten; siehe auch dessen Datenschutzhinweise.</p>
+              <p>Die Anwendung sendet deine Antworten nicht an ein Konto oder eine App-Datenbank und speichert sie nicht dauerhaft. Beim Schließen oder Neuladen der Seite gehen sie verloren. Nur wenn du es einschaltest, speichert dein Browser einen Lernzähler ohne Antworttexte; du kannst ihn jederzeit löschen. Der Hosting-Anbieter kann technische Zugriffsdaten nach seinen eigenen Bedingungen verarbeiten; siehe auch dessen Datenschutzhinweise.</p>
             </details>
             <details class="faq-item">
               <summary><span class="faq-tag">SICHERHEIT</span> Ist die Nutzung risikofrei und immer unbedenklich?</summary>
@@ -139,15 +203,21 @@
         <div class="quiz-top">
           <button id="exit-button" class="text-button" type="button"><span aria-hidden="true">←</span> Beenden</button>
           <div class="quiz-caption"><span class="mini-flag"><i></i><i></i><i></i></span> <span id="quiz-mode-label">ÜBUNG</span></div>
+          <div id="simulation-timer" class="timer-pill" role="timer" aria-live="off" hidden><span aria-hidden="true">◷</span> <span id="timer-value">60:00</span></div>
           <div id="quiz-count" class="quiz-count">FRAGE <strong>01</strong> / 10</div>
         </div>
         <div class="progress-track" role="progressbar" aria-label="Testfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
         <div class="quiz-layout">
-          <aside class="quiz-aside"><span class="step-label"><span>02</span> DEIN FORMAT</span><h2>Frage für Frage.<br><em>In deinem Tempo.</em></h2><p id="quiz-instructions">Lies die Frage in Ruhe und wähle die Antwort, die du für richtig hältst.</p><div class="aside-tip"><span aria-hidden="true">✦</span><p><b>Gut zu wissen</b><br>Du kannst deine Auswahl ändern, solange der Test läuft.</p></div></aside>
+          <aside class="quiz-aside"><span class="step-label"><span>02</span> DEIN FORMAT</span><h2>Frage für Frage.<br><em>In deinem Tempo.</em></h2><p id="quiz-instructions">Lies die Frage in Ruhe und wähle die Antwort, die du für richtig hältst.</p><div class="aside-tip"><span aria-hidden="true">✦</span><p><b>Gut zu wissen</b><br>Mit 1–4 wählst du eine Antwort, mit Enter gehst du weiter.</p></div></aside>
           <section class="question-card" aria-live="polite">
             <div class="question-meta"><span id="question-category">POLITIK &amp; DEMOKRATIE</span><span id="answered-count">0 beantwortet</span></div>
             <h1 id="question-text" tabindex="-1"></h1>
             <div id="answer-list" class="answer-list" role="group" aria-label="Antwortmöglichkeiten"></div>
+            <div class="question-tools">
+              <button id="speak-question" class="text-button" type="button"><span aria-hidden="true">◖</span> Frage vorlesen</button>
+              <a id="report-question" class="text-button" href="mailto:ruslanfridenli@proton.me">Tippfehler melden</a>
+            </div>
+            <p id="question-feedback" class="question-feedback" aria-live="polite" hidden></p>
             <div class="question-footer"><button id="previous-button" class="button button-secondary" type="button"><span aria-hidden="true">←</span> Zurück</button><button id="next-button" class="button button-primary" type="button">Nächste Frage <span aria-hidden="true">→</span></button></div>
           </section>
         </div>
@@ -155,15 +225,15 @@
       </section>
 
       <section id="result-screen" class="result-screen" hidden aria-labelledby="result-title">
-        <div class="result-heading"><div class="step-label"><span>03</span> <span id="result-step-label">DEIN ERGEBNIS</span></div><h1 id="result-title">Du hast es geschafft.</h1><p id="result-heading-copy">Jede Frage war ein Schritt nach vorn. Schau dir an, wie du abgeschnitten hast.</p></div>
+        <div class="result-heading"><div class="step-label"><span>03</span> <span id="result-step-label">DEIN ERGEBNIS</span></div><h1 id="result-title" tabindex="-1">Du hast es geschafft.</h1><p id="result-heading-copy">Jede Frage war ein Schritt nach vorn. Schau dir an, wie du abgeschnitten hast.</p></div>
         <div class="result-card">
-          <div id="score-panel" class="score-panel"><div class="score-ring"><div><strong id="score-percent">0%</strong><span>RICHTIG</span></div></div><p id="result-message">Weiter üben lohnt sich — du bist auf dem Weg.</p></div>
+          <div id="score-panel" class="score-panel"><div class="score-ring"><div><strong id="score-percent">0%</strong><span>RICHTIG</span></div></div><p id="result-message">Weiter üben lohnt sich — du bist auf dem Weg.</p><p id="pass-status" class="pass-status" hidden></p></div>
           <div id="result-stats" class="result-stats">
             <div class="stat-row"><span><i class="stat-dot correct-dot"></i>Richtig beantwortet</span><strong id="correct-total">0</strong></div>
             <div class="stat-row"><span><i class="stat-dot wrong-dot"></i>Falsch beantwortet</span><strong id="wrong-total">0</strong></div>
             <div class="stat-row"><span><i class="stat-dot open-dot"></i>Nicht beantwortet</span><strong id="skipped-total">0</strong></div>
             <div class="result-divider"></div><div class="stat-row total-row"><span>Fragen insgesamt</span><strong id="total-count">0</strong></div>
-            <div class="result-actions"><button id="review-button" class="button button-secondary" type="button">Antworten ansehen</button><button id="retry-button" class="button button-primary" type="button">Neuen Test starten <span aria-hidden="true">→</span></button></div>
+            <div class="result-actions"><button id="review-button" class="button button-secondary" type="button">Antworten ansehen</button><button id="retry-wrong-button" class="button button-secondary" type="button" hidden>Fehler &amp; offene Fragen üben</button><button id="print-errors-button" class="button button-secondary" type="button">Fehler drucken / als PDF</button><button id="retry-button" class="button button-primary" type="button">Neuen Test starten <span aria-hidden="true">→</span></button></div>
           </div>
           <div id="reflection-result" class="reflection-result" hidden>
             <div class="reflection-mark" aria-hidden="true">○</div>
@@ -173,7 +243,7 @@
             <div class="result-actions"><button id="review-button-reflection" class="button button-secondary" type="button">Meine Antworten ansehen</button><button id="retry-button-reflection" class="button button-primary" type="button">Zur Startseite</button></div>
           </div>
         </div>
-        <div id="review-panel" class="review-panel" hidden><div class="review-heading"><div class="step-label"><span>↳</span> DEINE ANTWORTEN</div><h2>Das hast du geantwortet</h2></div><div id="review-list" class="review-list"></div></div>
+        <div id="review-panel" class="review-panel" hidden><div class="review-heading"><div class="step-label"><span>↳</span> DEINE ANTWORTEN</div><h2 id="review-title">Das hast du geantwortet</h2></div><div id="review-list" class="review-list"></div></div>
         <p id="result-note" class="catalogue-note result-note">Übungsergebnis — kein amtliches Prüfungsergebnis.</p>
       </section>
     </main>

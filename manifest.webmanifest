@@ -1,0 +1,19 @@
+{
+  "name": "Einbürgerungstest — Lernen in deinem Tempo",
+  "short_name": "Einbürgerungstest",
+  "description": "Unabhängige Übungsfragen und Deutsch-Lernmodule für den Alltag in Deutschland.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f4ef",
+  "theme_color": "#17231f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

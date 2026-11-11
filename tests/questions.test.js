@@ -61,5 +61,50 @@ test("email contact is voluntary and never includes quiz answers", () => {
   const app = readFileSync(path.join(root, "app.js"), "utf8");
   assert.match(html, /mailto:ruslanfridenli@proton\.me/);
   assert.match(html, /Antworten aus den Übungen werden weder angehängt noch automatisch verschickt/);
-  assert.doesNotMatch(app, /mailto:|sendBeacon|XMLHttpRequest|fetch\s*\(/);
+  assert.match(html, /id="report-question"/);
+  assert.match(app, /const reportBody = .*question\.question/);
+  assert.doesNotMatch(app, /sendBeacon|XMLHttpRequest|fetch\s*\(/);
+});
+
+test("the simulation has 33 practice questions, a 60-minute timer and state-specific questions", () => {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const app = readFileSync(path.join(root, "app.js"), "utf8");
+  assert.match(html, /data-mode="simulation"/);
+  assert.match(html, /id="state-select"/);
+  assert.match(html, /id="simulation-timer"/);
+  assert.match(app, /slice\(0, 30\)/);
+  assert.match(app, /createRegionalQuestions\(stateSelect\.value\)/);
+  assert.match(app, /remainingSeconds = 60 \* 60/);
+  assert.match(app, /correct >= 17/);
+});
+
+test("the German learning modules and keyboard controls are available", () => {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const app = readFileSync(path.join(root, "app.js"), "utf8");
+  for (const level of ["A1", "A2", "B1", "B2", "C1"]) {
+    assert.match(app, new RegExp(`${level}:\\s*\\{`));
+  }
+  assert.match(html, /id="learning-section"/);
+  assert.match(app, /\^\[1-4\]\$/);
+  assert.match(app, /event\.key === "Enter"/);
+});
+
+test("the page can be installed and its static app shell cached offline", () => {
+  const manifest = JSON.parse(readFileSync(path.join(root, "manifest.webmanifest"), "utf8"));
+  const serviceWorker = readFileSync(path.join(root, "sw.js"), "utf8");
+  assert.equal(manifest.lang, "de");
+  assert.equal(manifest.display, "standalone");
+  for (const file of ["index.html", "styles.css", "app.js", "questions.js"]) {
+    assert.ok(serviceWorker.includes(`"./${file}"`), `Missing offline cache entry: ${file}`);
+  }
+});
+
+test("progress storage is opt-in and only keeps question counters", () => {
+  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const app = readFileSync(path.join(root, "app.js"), "utf8");
+  assert.match(html, /id="save-progress-toggle" type="checkbox"/);
+  assert.match(app, /record\.attempts \+= 1/);
+  assert.match(app, /record\.correct \+= Number\(answers\[index\] === question\.correct\)/);
+  assert.match(app, /localStorage\.removeItem\(progressKey\)/);
+  assert.doesNotMatch(app, /localStorage\.setItem\(progressKey,\s*JSON\.stringify\(answers/);
 });
